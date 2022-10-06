@@ -256,6 +256,8 @@ Authoritative answers can be found from
 
 ### IV) Wireshark
 
+a) 
+
 ![Untitled](TP%201%20Premier%20pas%20re%CC%81seau%20768dfc0df62a4d7698ef8022207f7359/Untitled.png)
 
 ![Untitled](TP%201%20Premier%20pas%20re%CC%81seau%20768dfc0df62a4d7698ef8022207f7359/Untitled%201.png)
@@ -263,3 +265,12 @@ Authoritative answers can be found from
 Essai avec nslookup blendermarket.com
 
 ![Untitled](TP%201%20Premier%20pas%20re%CC%81seau%20768dfc0df62a4d7698ef8022207f7359/Untitled%202.png)
+
+b) 
+
+![Untitled](TP%201%20Premier%20pas%20re%CC%81seau%20768dfc0df62a4d7698ef8022207f7359/Untitled%203.png)
+
+En observant le flux réseau , nous observons une répétition de flux ci dessus. Cela est sûrement dû au visionnage d’une vidéo. Voici les informations demandées :
+
+- l’ordinateur se connecte à cette adresse IP : 2a00:1450:4007:8:
+- Le port est 443.
