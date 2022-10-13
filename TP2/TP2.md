@@ -44,7 +44,9 @@ PING 10.10.10.127 (10.10.10.127): 56 data bytes
 64 bytes from 10.10.10.127: icmp_seq=3 ttl=128 time=2.073 ms
 ```
 
-c)
+c)  
+  
+[IP-Wireshark](./Wireshark/DHCP1.pcapng)
 
 Pour le ping : type 8 (Echo Request)
 
@@ -113,36 +115,46 @@ MacBook-Air-Yohan:~ yohan$ arp -a
 
 L’adresse MAC de mon camarade est bien présente. 
 
-**c) à faire chez soi** 
+c) [ARP-Wireshark](./Wireshark/ARP.pcapng)  
+  
+  L'arp broadcast fait une requête pour savoir à qui appartient l'adresse IP 10.10.10.127 et la donner à l'adresse IP 10.10.10.2. 
+  L'arp reply est la réponse et donne l'adresse MAC à l'adresse ip 10.10.10.2  
+    
+
+    
+    
 
 # III) DHCP you too my bro
+  
+[DHCP-Wireshark](./Wireshark/DHCP1.pcapng)
 
-- D
+- D 
+
     - adresse source : **0.0.0.0**
     - adresse destination : **255.255.255.255**
 - O
     - adresse source : **10.33.19.254**
     - adresse destination : **10.33.19.6**
-    - identification des éléments (IP, passerelle et DNS ()
-        - Your (client) IP adress : 10.33.19.6
+    - identification des éléments (IP, passerelle et DNS)
+        - Your (client) IP address : 10.33.19.6
         - Router : 10.33.19.254
-        - DNS :
+        - Domain Name Server  :
             - 8.8.8.8
             - 8.8.4.4
             - 1.1.1.1
 - R
     - adresse source : **0.0.0.0**
     - adresse destination : **255.255.255.255**
-    - identification des éléments (IP, passerelle et DNS ()
+    - identification des éléments (IP, passerelle et DNS)
         - Requested IP :  10.33.19.6
         - DHCP Server Identifier :  10.33.19.254
 - A
     - adresse source : **10.33.19.254**
     - adresse destination : **10.33.17.6**
-    - identification des éléments (IP, passerelle et DNS ()
-        - Your (client) IP adress : 10.33.19.6
+    - identification des éléments (IP, passerelle et DNS)
+        - Your (client) IP address : 10.33.19.6
         - Router : 10.33.19.254
-        - DNS :
+        - Domain Name Server :
             - 8.8.8.8
             - 8.8.4.4
             - 1.1.1.1
