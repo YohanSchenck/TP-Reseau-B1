@@ -136,11 +136,11 @@ success
 
 * B) Ajouter les routes statiques nécessaires pour que john et marcel puissent se ping
 
-**NA car MACOS**
+**ND car MACOS**
 
 ### 2) Analyse de trames
 
-**NA car MACOS**
+**ND car MACOS**
 
 
 ### 3) Accès internet
@@ -214,9 +214,9 @@ PING gitlab.com (172.65.251.78) 56(84) bytes of data.
 ---
 ### 1) Mise en place du serveur DHCP
 
-* A) Sur la machine john, vous installerez et configurerez un serveur DHCP
+* A&B) Installation et configuration du serveur DHCP
 
-**Installation du serveur sur John**
+* **Installation du serveur sur John**
 
 ```powershell
 [user1@John ~]$ sudo dnf install dhcp-server -y
@@ -267,7 +267,7 @@ Installed:
 Complete!
 ```
 
-**Configuration du serveur DHCP**
+* **Configuration du serveur DHCP**
 ```powershell
 # specify DNS server's hostname or IP address
 option domain-name-servers     1.1.1.1;
@@ -288,7 +288,7 @@ subnet 172.16.72.0 netmask 255.255.255.0 {
 }
 ```
 
-**Le service est fonctionnel**
+* **Le service est fonctionnel**
 ```powershell
 [user1@John ~]$ systemctl status dhcpd.service
 ● dhcpd.service - DHCPv4 Server Daemon
@@ -317,7 +317,7 @@ Oct 28 09:37:09 John dhcpd[1237]: DHCPREQUEST for 172.16.72.5 from ba:00:66:cd:>
 lines 1-23
 ```
 
-**Récupération adresse IP**
+* **Récupération adresse IP**
 ```powershell
 [user1@Bob ~]$ sudo dhclient -v enp0s1 -s 172.16.72.11
 Internet Systems Consortium DHCP Client 4.4.2b1
@@ -352,7 +352,7 @@ DHCPACK of 172.16.72.13 from 172.16.72.11 (xid=0x628e507a)
        valid_lft forever preferred_lft forever
 ```
 
-**Ping passerelle**
+* **Ping passerelle**
 ```powershell
 [user1@Bob ~]$ ping 172.16.72.254
 PING 172.16.72.254 (172.16.72.254) 56(84) bytes of data.
@@ -362,14 +362,14 @@ PING 172.16.72.254 (172.16.72.254) 56(84) bytes of data.
 64 bytes from 172.16.72.254: icmp_seq=4 ttl=64 time=2.08 ms
 ```
 
-**Route par défaut**
+* **Route par défaut**
 ```powershell
 [user1@Bob ~]$ ip r s
 default via 172.16.72.254 dev enp0s1 
 172.16.72.0/24 dev enp0s1 proto kernel scope link src 172.16.72.5 metric 100
 ```
 
-**Ping 1.1.1.1**
+* **Ping 1.1.1.1**
 ```powershell
 [user1@Bob ~]$ ping 1.1.1.1
 PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
@@ -377,7 +377,7 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=101 ms
 ```
 
-**Commande dig**
+* **Commande dig**
 ```powershell
 [user1@Bob ~]$ dig gitlab.com
 
@@ -401,7 +401,7 @@ gitlab.com.		187	IN	A	172.65.251.78
 ;; MSG SIZE  rcvd: 55
 ```
 
-**Ping gitlab.com**
+* **Ping gitlab.com**
 ```powershell
 [user1@Bob ~]$ ping gitlab.com
 PING gitlab.com (172.65.251.78) 56(84) bytes of data.
@@ -413,9 +413,9 @@ PING gitlab.com (172.65.251.78) 56(84) bytes of data.
 ### 2) Analyse de trames 
   
 
-**Command DHCPClient**
+* **Command DHCPClient**
 
-* release
+* Release
 ```powershell
 sudo dhcpclient -r -v -i enp0s1
 ```
@@ -426,4 +426,3 @@ sudo dhcpclient -v -i enp0s1 -s 172.16.72.11
 ```
 
 [tp3_DHCP](./tp3_DHCP.pcap)
-
